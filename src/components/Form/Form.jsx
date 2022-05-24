@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import { createTodoThunk } from "../../store/actions/actions";
 import { useNavigate } from "react-router-dom";
 
-export default function Form({open}) {
+export default function Form({ open }) {
   const {
     register,
     handleSubmit,

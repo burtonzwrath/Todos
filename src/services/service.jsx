@@ -6,17 +6,19 @@ export const getTodos = () => {
     .then((resp) => resp.data);
 };
 
-export const deleteTodo = (user) => {
+export const deleteTodo = (todo) => {
   return axios
-    .delete(URL + user.id)
+    .delete(URL + todo.id)
     .then((resp) => resp.data);
 };
 
-export const createTodos = (user) => {
-  return axios.post(
-      URL,
-    user,
-    { headers: { "Content-Type": "application/json" } }
-  );
+export const createTodos = (todo) => {
+  return axios.post(URL, todo, {
+    headers: { "Content-Type": "application/json" },
+  });
 };
 
+export const updateTodos=(todo)=>{
+  return axios.put ( URL + todo.id)
+      .then ((resp)=>resp.data
+  )}

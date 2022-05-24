@@ -1,19 +1,28 @@
-import { createTodos, deleteTodo, getTodos } from "../../services/service";
+import {
+  createTodos,
+  deleteTodo,
+  getTodos,
+  updateTodos,
+} from "../../services/service";
 
 export const DELETE_TODO = "DELETE_TODO";
 export const SAVE_TODO = "SAVE_TODO";
-export const SET_TODO = "SET_TODO";
 export const GET_NEW_TODOS = "GET_NEW_TODOS";
-
-export const setTodo = (payload) => ({
-  type: SET_TODO,
-  payload,
-});
 
 export const getNewTodos = (payload) => ({
   type: GET_NEW_TODOS,
   payload,
 });
+
+export const updateTodosThunk = (payload) => {
+  return function (dispatch, getState) {
+    const todos = getState();
+    const newTodos = todos.todos.map((todo) =>
+      todo.id === payload.id ? { ...todo, complited: !todo.complited } : todo
+    );
+    updateTodos(payload).then(() => dispatch(getNewTodos(newTodos)));
+  };
+};
 
 export const fetchTodosThunk = () => {
   return function (dispatch) {

@@ -34,7 +34,7 @@ export default function todoItem({ todo, onItemClick, removeTodo }) {
         {todo.title}
       </TableCell>
 
-      <TableCell sx={{ maxWidth:"40px" }}>
+      <TableCell sx={{ maxWidth: "40px" }}>
         <Button
           variant="outlined"
           color="error"

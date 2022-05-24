@@ -3,9 +3,9 @@ import {
   deleteTodo,
   deleteTodoThunk,
   fetchTodosThunk,
+  updateTodosThunk,
 } from "../../store/actions/actions";
 import TodosList from "./TodosList";
-import { setTodo } from "../../store/actions/actions";
 import { Box, Button } from "@mui/material";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,9 +17,8 @@ export default function TodosContainer({ open }) {
   const dispatch = useDispatch();
 
   const onItemClick = (todo) => {
-    dispatch(setTodo(todo));
+    dispatch(updateTodosThunk(todo));
   };
-
   function removeTodo(todo) {
     dispatch(deleteTodoThunk(todo));
   }
